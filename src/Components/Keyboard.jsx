@@ -4,62 +4,62 @@ import './Keyboard.module.css'
 
 const octaves = [
   {
-    note: 'C',
+    note: 'C4',
     keyboardKey: 'a',
     isFlatOrSharp: false
   },
   {
-    note: 'C#/Db',
+    note: 'C#4',
     keyboardKey: 'w',
     isFlatOrSharp: true
   },
   {
-    note: 'D',
+    note: 'D4',
     keyboardKey: 's',
     isFlatOrSharp: false
   },
   {
-    note: 'D#/Eb',
+    note: 'D#4',
     keyboardKey: 'e',
     isFlatOrSharp: true
   },
   {
-    note: 'E',
+    note: 'E4',
     keyboardKey: 'd',
     isFlatOrSharp: false
   },
   {
-    note: 'F',
+    note: 'F4',
     keyboardKey: 'f',
     isFlatOrSharp: false
   },
   {
-    note: 'F#/Gb',
+    note: 'F#4',
     keyboardKey: 'r',
     isFlatOrSharp: true
   },
   {
-    note: 'G',
+    note: 'G4',
     keyboardKey: 'g',
     isFlatOrSharp: false
   },
   {
-    note: 'G#/Ab',
+    note: 'G#4',
     keyboardKey: 't',
     isFlatOrSharp: true
   },
   {
-    note: 'A',
+    note: 'A4',
     keyboardKey: 'h',
     isFlatOrSharp: false
   },
   {
-    note: 'A#/Bb',
+    note: 'A#4',
     keyboardKey: 'y',
     isFlatOrSharp: true
   },
   {
-    note: 'B',
+    note: 'B4',
     keyboardKey: 'j',
     isFlatOrSharp: false
   }
