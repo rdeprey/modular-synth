@@ -1,0 +1,11 @@
+section {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}
+
+label {
+  font-variant-caps: all-small-caps;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--white-text-color);
+}
