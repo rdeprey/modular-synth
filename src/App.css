@@ -1,5 +1,6 @@
 :root {
-  --white-text-color: #ffffff;
+  --white-color: #ffffff;
+  --black-color: #000000;
 }
 
 html,
@@ -21,7 +22,7 @@ h2 {
   font-size: 1.2rem;
   margin: 0;
   font-variant-caps: all-small-caps;
-  color: var(--white-text-color);
+  color: var(--white-color);
 }
 
 .visually-hidden {

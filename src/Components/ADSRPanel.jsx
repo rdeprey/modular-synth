@@ -8,16 +8,16 @@ export const ADSRPanel = () => {
         ADSR
       </h2>
       <div>
-        <label for='attack-range'>Attack</label>
+        <label htmlFor='attack-range'>Attack</label>
       </div>
       <div>
-        <label for='decay-range'>Decay</label>
+        <label htmlFor='decay-range'>Decay</label>
       </div>
       <div>
-        <label for='sustain-range'>Sustain</label>
+        <label htmlFor='sustain-range'>Sustain</label>
       </div>
       <div>
-        <label for='release-range'>Release</label>
+        <label htmlFor='release-range'>Release</label>
       </div>
     </section>
   )
