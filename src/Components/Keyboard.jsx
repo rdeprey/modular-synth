@@ -1,5 +1,7 @@
 import React from 'react'
+import * as Tone from 'tone'
 import { Key } from './Key'
+import { useSynthesizerContext } from '../Audio/Synthesizer'
 import './Keyboard.module.css'
 
 const octaves = [
@@ -69,19 +71,44 @@ const getKeyData = (keyPressed) => {
   return octaves.find((octave) => octave.keyboardKey === keyPressed)
 }
 
-const playNoteKeyboard = (event) => {
-  if (getKeyData(event.key)) {
-    console.log('play note')
-
-    // TODO: Add code to generate the right note
-  }
-}
-
 export const Keyboard = () => {
+  const { synth, setSynth } = useSynthesizerContext()
+
+  const playNote = async (event) => {
+    const keyData = getKeyData(event.key)
+
+    if (keyData) {
+      // Have to wait for audio to be ready before starting anything
+      await Tone.start()
+
+      // Creates a basic synthesizer with a single oscillator
+      const localSynth = synth || new Tone.Synth().toDestination()
+
+      // Set the tone to sine
+      // TODO: Move this into WaveformPanel when further along
+      localSynth.oscillator.type = 'sawtooth'
+
+      // fires off a note continously until trigger is released
+      localSynth.triggerAttack(keyData.note)
+
+      if (!synth) {
+        setSynth(localSynth)
+      }
+    }
+  }
+
+  const stopPlayingNote = () => {
+    if (synth) {
+      // Release the note
+      synth.triggerRelease()
+    }
+  }
+
   return (
     <section
       aria-labelledby='keyboard-headline'
-      onKeyDown={playNoteKeyboard}
+      onKeyDown={playNote}
+      onKeyUp={stopPlayingNote}
       tabIndex={0}>
       <h2 id='keyboard-headline' className='visually-hidden'>
         Keyboard

@@ -1,7 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react'
+import * as Tone from 'tone'
+import { useSynthesizerContext } from '../Audio/Synthesizer'
 import styles from './Key.module.css'
 
 export const Key = ({ note, keyboardKey, isFlatOrSharp }) => {
+  const { synth, setSynth } = useSynthesizerContext()
+
   const [keyPosition, setKeyPosition] = useState(0)
   const keyRef = useRef(null)
 
@@ -19,12 +23,37 @@ export const Key = ({ note, keyboardKey, isFlatOrSharp }) => {
     }
   }, [setKeyPosition])
 
-  const playNote = (event) => {}
+  const playNote = async (note) => {
+    // Have to wait for audio to be ready before starting anything
+    await Tone.start()
+
+    // Creates a basic synthesizer with a single oscillator
+    const localSynth = synth || new Tone.Synth().toDestination()
+
+    // Set the waveform (aka, oscillator)
+    // TODO: Move this into WaveformPanel when further along
+    localSynth.oscillator.type = 'sawtooth'
+
+    // fires off a note continously until trigger is released
+    localSynth.triggerAttack(note)
+
+    if (!synth) {
+      setSynth(localSynth)
+    }
+  }
+
+  const stopPlayingNote = () => {
+    if (synth) {
+      // Release the note
+      synth.triggerRelease()
+    }
+  }
 
   return (
     <button
       aria-labelledby='key-label'
-      onClick={playNote}
+      onMouseDown={() => playNote(note)}
+      onMouseUp={stopPlayingNote}
       style={{ backgroundColor: keyColor, left: keyPosition }}
       className={styles[keyClassName]}
       ref={keyRef}>
