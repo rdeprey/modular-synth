@@ -1,13 +1,10 @@
 import './App.css';
-import TriangleWaveform from './Components/TriangleWaveform';
-import SquareWaveform from './Components/SquareWaveform';
-import { Button } from './Components/Button';
+import WaveformPanel from './Components/Panels/WaveformPanel/WaveformPanel';
 
 function App() {
   return (
     <div className="App">
-      <Button><TriangleWaveform /></Button>
-      <Button><SquareWaveform /></Button>
+      <WaveformPanel />
     </div>
   );
 }
