@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import TriangleWaveform from './Components/TriangleWaveform';
 import { Button } from './Components/Button';
