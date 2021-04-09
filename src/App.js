@@ -1,10 +1,10 @@
 import './App.css';
-import WaveformPanel from './Components/Panels/WaveformPanel/WaveformPanel';
+import SettingsGrid from './Components/Panels/SettingsGrid';
 
 function App() {
   return (
     <div className="App">
-      <WaveformPanel />
+      <SettingsGrid />
     </div>
   );
 }

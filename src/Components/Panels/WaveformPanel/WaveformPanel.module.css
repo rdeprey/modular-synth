@@ -1,4 +1,17 @@
 .waveformGrid {
     display: grid;
     grid-template-columns: repeat(2, 50%);
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.waveformGrid > button svg {
+    width: 100%;
+    height: 100%;
+}
+
+.waveformGrid > button {
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
 }
