@@ -1,15 +1,19 @@
 .settingsGrid {
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: 35% 45% 30%;
+  justify-items: center;
+}
+
+.settingsGrid section {
+  width: 100%;
 }
 
 .visuallyHidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
